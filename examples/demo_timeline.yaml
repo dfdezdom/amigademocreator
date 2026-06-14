@@ -1,0 +1,104 @@
+audio: "Zero.aiff"      # .wav and .aiff both supported
+output: "demo.mp4"
+fps: 60
+amiga_palette: true
+crt_filter: true
+max_duration_sec: 280  # 4:40
+#preview: true         # uncomment for fast preview (30fps, no upscale, no CRT)
+#workers: 4            # uncomment for parallel rendering
+transition_sec: 1.0    # crossfade duration between scenes
+
+texts:
+  - text: "Amiga Demo Creator"
+    start_beat: 0
+    duration_beats: 16
+    effect: sine_scroll
+  - text: "Powered by Python"
+    start_beat: 16
+    duration_beats: 16
+    effect: sine_scroll
+  - text: "MetaBalls"
+    start_beat: 192
+    duration_beats: 16
+    effect: sinus_scroll
+  - text: "Tunnel Effect"
+    start_beat: 320
+    duration_beats: 16
+    effect: sine_scroll
+  - text: "3D Landscape"
+    start_beat: 448
+    duration_beats: 16
+    effect: sinus_scroll
+  - text: "Thanks for watching"
+    start_beat: 544
+    duration_beats: 16
+    effect: sine_scroll
+
+scenes:
+  - effect: plasma
+    start_beat: 0
+    duration_beats: 64
+    params:
+      palette: "fire"
+      speed: 1.2
+
+  - effect: bouncing_ball
+    start_beat: 64
+    duration_beats: 64
+    params:
+      ball_size: 60
+      rotation_speed: 1.0
+
+  - effect: dotfield
+    start_beat: 128
+    duration_beats: 64
+    params:
+      dot_count: 300
+      speed: 200
+      colors: [255, 255, 200]
+
+  - effect: metaballs
+    start_beat: 192
+    duration_beats: 64
+    params:
+      ball_count: 6
+      speed: 60
+      palette: "fire"
+
+  - effect: rotozoom
+    start_beat: 256
+    duration_beats: 64
+    params:
+      zoom_speed: 0.6
+      rotation_speed: 0.4
+
+  - effect: tunnel
+    start_beat: 320
+    duration_beats: 64
+    params:
+      speed: 1.5
+      rotation_speed: 0.4
+      texture: "checkerboard"
+
+  - effect: copper_bars
+    start_beat: 384
+    duration_beats: 64
+    params:
+      bar_count: 40
+      color_cycle_speed: 1.5
+
+  - effect: landscape
+    start_beat: 448
+    duration_beats: 64
+    params:
+      speed: 120
+      height_scale: 80
+      palette: "fire"
+
+  - effect: vector_objects
+    start_beat: 512
+    duration_beats: 64
+    params:
+      object_type: "cube"
+      rotation_speed: 0.8
+      scale: 120
