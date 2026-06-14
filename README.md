@@ -1,34 +1,41 @@
 # AmigaDemoCreator
 
 ```
-    _          _                  _      ____                _             _
-   / \   _ __ (_) __ _  ___ _ __ | |_   / ___|_ __ ___  __ _| | ___  _   _| |_
-  / _ \ | '_ \| |/ _` |/ _ \ '_ \| __| | |   | '__/ _ \/ _` | |/ _ \| | | | __|
- / ___ \| | | | | (_| |  __/ | | | |_  | |___| | |  __/ (_| | | (_) | |_| | |_
-/_/   \_\_| |_|_|\__, |\___|_| |_|\__|  \____|_|  \___|\__, |_|\___/ \__,_|\__|
-                 |___/                                 |___/
+ ██████╗ ███╗   ███╗██╗ ██████╗  █████╗     ██████╗ ███████╗███╗   ███╗ ██████╗
+██╔═══██╗████╗ ████║██║██╔════╝ ██╔══██╗    ██╔══██╗██╔════╝████╗ ████║██╔═══██╗
+██║   ██║██╔████╔██║██║██║  ███╗███████║    ██║  ██║█████╗  ██╔████╔██║██║   ██║
+██║   ██║██║╚██╔╝██║██║██║   ██║██╔══██║    ██║  ██║██╔══╝  ██║╚██╔╝██║██║   ██║
+╚██████╔╝██║ ╚═╝ ██║██║╚██████╔╝██║  ██║    ██████╔╝███████╗██║ ╚═╝ ██║╚██████╔╝
+ ╚═════╝ ╚═╝     ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝    ╚═════╝ ╚══════╝╚═╝     ╚═╝ ╚═════╝
+
+ ██████╗██████╗ ███████╗ █████╗ ████████╗ ██████╗ ██████╗ 
+██╔════╝██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗
+██║     ██████╔╝█████╗  ███████║   ██║   ██║   ██║██████╔╝
+██║     ██╔══██╗██╔══╝  ██╔══██║   ██║   ██║   ██║██╔══██╗
+╚██████╗██║  ██║███████╗██║  ██║   ██║   ╚██████╔╝██║  ██║
+ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
 ```
 
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](https://github.com/dfdezdom/amigademocreator)
 
-Genera videos con el estilo de una demo de Amiga a partir de un archivo de audio. Sincroniza efectos visuales retro con el ritmo de la música usando análisis de beats.
+Generate Amiga-style demo videos synchronized to music. Retro visual effects synced to the beat of your audio using real-time analysis.
 
 ---
 
 ## Demo
 
-<!-- Añade aquí un GIF o screenshot de tu demo -->
-<!-- Ejemplo: ![Demo](docs/demo.gif) -->
+<!-- Add a GIF or screenshot here -->
+<!-- Example: ![Demo](docs/demo.gif) -->
 
-## Requisitos
+## Requirements
 
 - **Python** ≥ 3.10
-- **FFmpeg** instalado y disponible en `$PATH`
-- **pip** para gestionar dependencias
+- **FFmpeg** installed and available in `$PATH`
+- **pip** for dependency management
 
-## Instalación
+## Installation
 
 ```sh
 git clone https://github.com/dfdezdom/amigademocreator.git
@@ -36,80 +43,80 @@ cd amigademocreator
 pip install -e .
 ```
 
-### Opciones adicionales
+### Optional extras
 
 ```sh
-# Para renderizado más rápido (usando OpenCV)
+# Faster rendering (using OpenCV)
 pip install -e ".[fast]"
 
-# Para reproducción en tiempo real (usando pygame)
+# Real-time playback (using pygame)
 pip install -e ".[live]"
 ```
 
-## Uso rápido
+## Quick Start
 
 ```sh
-# Renderizar un demo
+# Render a demo
 python main.py examples/demo_timeline.yaml
 
-# Vista previa rápida (30fps, sin upscale ni CRT)
+# Fast preview (30fps, no upscale/CRT)
 python main.py --preview examples/demo_timeline.yaml
 
-# Renderizado paralelo (4 trabajadores)
+# Parallel rendering (4 workers)
 python main.py --workers 4 examples/demo_timeline.yaml
 
-# Reanudar un renderizado interrumpido
+# Resume an interrupted render
 python main.py --resume examples/demo_timeline.yaml
 
-# Reproducción en tiempo real con audio
+# Real-time playback with audio
 python main.py --live examples/demo_timeline.yaml
 ```
 
-## Modos de ejecución
+## Render Modes
 
-| Modo | Descripción | Comando/Config |
+| Mode | Description | Command / Config |
 |------|-------------|----------------|
-| **Normal** | Calidad completa, 60fps, CRT scanlines | (por defecto) |
-| **Preview** | Rápido: 30fps, sin upscale ni CRT | `--preview` o `preview: true` |
-| **Paralelo** | Usa múltiples procesos para renderizar | `--workers N` o `workers: N` |
-| **Resume** | Reanuda desde frames ya renderizados | `--resume` o `resume: true` |
-| **Live** | Reproducción en tiempo real con audio | `--live` (requiere pygame) |
+| **Normal** | Full quality, 60fps, CRT scanlines | (default) |
+| **Preview** | Fast: 30fps, no upscale/CRT | `--preview` or `preview: true` |
+| **Parallel** | Multi-process rendering | `--workers N` or `workers: N` |
+| **Resume** | Continue from existing frames | `--resume` or `resume: true` |
+| **Live** | Real-time playback with audio | `--live` (requires pygame) |
 
-## Efectos disponibles
+## Available Effects
 
-### Efectos visuales
+### Visual Effects
 
-- `plasma` — Efecto de plasma animado
-- `bouncing_ball` — Pelota rebotando al ritmo
-- `copper_bars` — Barras de color estilo Amiga Copper
-- `scroller` — Texto scroll horizontal
-- `rotozoom` — Rotación y zoom de texturas
-- `tunnel` — Efecto de túnel 3D
-- `vector_objects` — Objetos 3D vectoriales (cubo, etc.)
-- `spectrum` — Analizador de espectro de audio
-- `metaballs` — Meta-balls metabólicas
-- `dotfield` — Campo de partículas
-- `sinus_scroll` — Scroll senoidal de texto
-- `landscape` — Paisaje 3D wireframe
+- `plasma` — Animated plasma effect
+- `bouncing_ball` — Ball bouncing to the beat
+- `copper_bars` — Amiga-style color bars
+- `scroller` — Horizontal text scroller
+- `rotozoom` — Rotating and zooming textures
+- `tunnel` — 3D tunnel effect
+- `vector_objects` — 3D vector objects (cube, etc.)
+- `spectrum` — Audio spectrum analyzer
+- `metaballs` — Metaballs effect
+- `dotfield` — Particle field
+- `sinus_scroll` — Sinusoidal text scroll
+- `landscape` — 3D wireframe landscape
 
-### Efectos de texto
+### Text Effects
 
-- `sine_scroll` — Scroll con onda sinusoidal
-- `sinus_scroll` — Scroll senoidal alternativo
+- `sine_scroll` — Sine wave text scroll
+- `sinus_scroll` — Alternative sinusoidal scroll
 
-## Formato de timeline (YAML)
+## Timeline Format (YAML)
 
 ```yaml
-audio: "Zero.aiff"       # .wav y .aiff soportados
+audio: "Zero.aiff"       # .wav and .aiff supported
 output: "demo.mp4"
 fps: 60
 amiga_palette: true
 crt_filter: true
-max_duration_sec: 280    # opcional: renderizar solo N segundos
-preview: false           # opcional: preview rápido
-workers: 1               # opcional: trabajadores paralelos
-resume: false           # opcional: reanudar render
-transition_sec: 1.0      # duración de crossfade entre escenas
+max_duration_sec: 280    # optional: render only N seconds
+preview: false           # optional: fast preview
+workers: 1               # optional: parallel workers
+resume: false           # optional: resume render
+transition_sec: 1.0      # crossfade duration between scenes
 
 texts:
   - text: "Amiga Demo Creator"
@@ -126,13 +133,13 @@ scenes:
       speed: 1.2
 ```
 
-## Añadir un efecto
+## Adding an Effect
 
-1. Crear `amiga_demo/effects/tu_efecto.py` heredando de `Effect`
-2. Implementar `render_frame(time_sec, beat_timeline) -> PIL.Image`
-3. Registrar en `amiga_demo/renderer/scene.py` en `EFFECT_REGISTRY` o `TEXT_EFFECT_REGISTRY`
+1. Create `amiga_demo/effects/your_effect.py` extending `Effect`
+2. Implement `render_frame(time_sec, beat_timeline) -> PIL.Image`
+3. Register in `amiga_demo/renderer/scene.py` in `EFFECT_REGISTRY` or `TEXT_EFFECT_REGISTRY`
 
-Ver [CONTRIBUTING.md](CONTRIBUTING.md) para más detalles.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ## Tests
 
@@ -140,36 +147,36 @@ Ver [CONTRIBUTING.md](CONTRIBUTING.md) para más detalles.
 python -m pytest tests/ -v
 ```
 
-14 tests: 12 efectos + 2 de paleta.
+14 tests: 12 effects + 2 palette.
 
-## Arquitectura
+## Architecture
 
 ```
 main.py
   └── amiga_demo/cli.py
         └── renderer/output.py
-              ├── audio/analyzer.py    (análisis de audio con librosa)
+              ├── audio/analyzer.py    (librosa audio analysis)
               ├── audio/sync.py        (BeatTimeline)
-              ├── effects/*.py         (12 efectos visuales)
+              ├── effects/*.py         (12 visual effects)
               └── renderer/
-                    ├── scene.py        (configuración y registro)
-                    ├── compositor.py   (crossfade y fades)
+                    ├── scene.py        (config and registry)
+                    ├── compositor.py   (crossfade and fades)
                     ├── upscaler.py     (upscale + CRT scanlines)
-                    └── output.py       (renderizado y encoding FFmpeg)
+                    └── output.py       (rendering and FFmpeg encoding)
 ```
 
-## Contribuir
+## Contributing
 
-¡Las contribuciones son bienvenidas! Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para más información.
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
-## Autor
+## Author
 
 - **dfdezdom** — [GitHub](https://github.com/dfdezdom)
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-**¡Disfruta creando demos al estilo Amiga! 🎮🎶**
+**Enjoy creating Amiga-style demos! 🎮🎶**
